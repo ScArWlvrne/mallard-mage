@@ -8,9 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dge2dmjl1uf55" path="res://components/movement_component.tscn" id="7_8t03j"]
 [ext_resource type="PackedScene" uid="uid://dd22uvhl1tudm" path="res://components/jump_component.tscn" id="7_boad6"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
-radius = 22.0
-height = 68.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6k8r"]
+size = Vector2(60, 75)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component")]
 script = ExtResource("1_yw30f")
@@ -20,16 +19,21 @@ movement_component = NodePath("MovementComponent")
 jump_component = NodePath("JumpComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(5, -70)
 texture = ExtResource("1_oul6g")
+offset = Vector2(-2.5, 30)
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_rkbax")
+position = Vector2(5, -38.5)
+shape = SubResource("RectangleShape2D_g6k8r")
 
-[node name="GravityComponent" parent="." instance=ExtResource("2_rkbax")]
-script = ExtResource("4_qjkh3")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
 
-[node name="InputComponent" parent="." instance=ExtResource("5_rgyib")]
+[node name="InputComponent" parent="CanvasLayer" instance=ExtResource("5_rgyib")]
+
+[node name="MovementComponent" parent="CanvasLayer" instance=ExtResource("7_8t03j")]
 
 [node name="MovementComponent" parent="." instance=ExtResource("7_8t03j")]
 
