@@ -2,7 +2,7 @@ class_name JumpComponent
 extends Node
 
 @export_subgroup("Settings")
-@export var jump_velocity: float = -350.0
+@export var jump_velocity: float = -450.0
 
 var is_jumping: bool = false
 
