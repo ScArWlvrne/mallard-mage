@@ -1,15 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dndsqqd3t4gh"]
+[gd_scene load_steps=8 format=3 uid="uid://dndsqqd3t4gh"]
 
 [ext_resource type="PackedScene" uid="uid://hghot7dv38v0" path="res://gui/ui_slot.tscn" id="1_uj4x7"]
 [ext_resource type="Texture2D" uid="uid://dki3uuh1nfqfq" path="res://assets/Fireball.png" id="2_v62dg"]
+[ext_resource type="Texture2D" uid="uid://7iedbsigdmc3" path="res://assets/hourglass-icon-small.png" id="3_cemxd"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_cemxd"]
 device = -1
 keycode = 49
 unicode = 49
 
-[sub_resource type="Shortcut" id="Shortcut_uj4x7"]
+[sub_resource type="Shortcut" id="Shortcut_cemxd"]
 events = [SubResource("InputEventKey_cemxd")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vuvel"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_vuvel"]
+events = [SubResource("InputEventKey_vuvel")]
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -21,11 +30,17 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 718.0
+offset_bottom = 718.0
 
 [node name="ui_slot" parent="HBoxContainer" instance=ExtResource("1_uj4x7")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_uj4x7")
-text = "fireball"
+shortcut = SubResource("Shortcut_cemxd")
+text = "1"
 icon = ExtResource("2_v62dg")
+
+[node name="ui_slot2" parent="HBoxContainer" instance=ExtResource("1_uj4x7")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_vuvel")
+text = "2"
+icon = ExtResource("3_cemxd")
