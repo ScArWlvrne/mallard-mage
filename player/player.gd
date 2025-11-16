@@ -8,14 +8,14 @@ extends CharacterBody2D
 @export var casting_component: CastingComponent
 @export var aiming_arrow_component: AimingArrowComponent
 
-var current_spell = 0
-
 enum Spell {
 	NONE,
 	FIREBALL,
 	GRAPPLE,
 	TIME_STOP
 }
+
+var current_spell = Spell.FIREBALL
 
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self, delta)
