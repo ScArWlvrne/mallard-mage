@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhf83npdxv6hy"]
+[gd_scene load_steps=9 format=3 uid="uid://bhf83npdxv6hy"]
 
 [ext_resource type="PackedScene" uid="uid://c836cvr7dwqx0" path="res://levels/Level2/insideCastle.tscn" id="1_3qdpf"]
 [ext_resource type="Script" uid="uid://dkbsjtp5ijnly" path="res://levels/Level2/level_2_singleplayer.gd" id="1_ajtu3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsbj07i5t4yv4" path="res://enemies/enemy.tscn" id="3_d3l7n"]
 [ext_resource type="Texture2D" uid="uid://cei7ykcd5r35v" path="res://assets/mana_background.png" id="4_svqx4"]
 [ext_resource type="Texture2D" uid="uid://ccnrmmjjga0vm" path="res://assets/mana_outline.png" id="5_ajtu3"]
+[ext_resource type="PackedScene" uid="uid://cl30nlalr8wlp" path="res://levels/goal_flag.tscn" id="5_o2u0t"]
 [ext_resource type="Texture2D" uid="uid://ccks6ga6dvuuu" path="res://assets/mana_fill.png" id="6_o2u0t"]
 
 [node name="Level2Singleplayer" type="Node"]
@@ -30,6 +31,10 @@ scale = Vector2(0.1, 0.1)
 [node name="Enemy3" parent="Level2" instance=ExtResource("3_d3l7n")]
 position = Vector2(-318, -256)
 scale = Vector2(0.1, 0.1)
+
+[node name="GoalFlag" parent="Level2" instance=ExtResource("5_o2u0t")]
+position = Vector2(-125, -306)
+next_scene_path = "res://levels/Level2/level2_singleplayer.tscn"
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
