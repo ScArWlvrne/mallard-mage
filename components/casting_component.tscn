@@ -18,5 +18,4 @@ script = ExtResource("3_iqpwj")
 [node name="TimeStop" parent="." instance=ExtResource("5_4fsy2")]
 
 [node name="Fireball" parent="." instance=ExtResource("4_vnax8")]
-fireball_scene = ExtResource("4_vnax8")
 speed = 300.0
