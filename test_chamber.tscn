@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://byfbo2i8lsrtv"]
+[gd_scene load_steps=3 format=3 uid="uid://cg7b8kmjhnwss"]
 
-[ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="1_46a3d"]
+[ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="1_7vkde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hw5fp"]
 size = Vector2(293, 40)
@@ -18,5 +18,5 @@ shape = SubResource("RectangleShape2D_hw5fp")
 offset_right = 294.0
 offset_bottom = 40.0
 
-[node name="Player" parent="." instance=ExtResource("1_46a3d")]
+[node name="Player" parent="." instance=ExtResource("1_7vkde")]
 position = Vector2(114, -49)
