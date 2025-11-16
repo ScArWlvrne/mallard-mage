@@ -15,4 +15,4 @@ script = ExtResource("1_aqiiu")
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 646.0
-text = "lmao you lost click anywhere to restart"
+text = "congrats you won click anywhere to restart"
