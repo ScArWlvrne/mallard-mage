@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://vf2iidpoyrnh"]
+
+[ext_resource type="PackedScene" uid="uid://cyosex1s2u4kr" path="res://Enemy/enemy.tscn" id="1_0e48y"]
+[ext_resource type="PackedScene" uid="uid://j73gg1e3ncfi" path="res://Pause/Pause.tscn" id="2_epypp"]
+
+[node name="Node" type="Node"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_0e48y")]
+
+[node name="Pause" parent="." instance=ExtResource("2_epypp")]
+offset_left = 303.0
+offset_top = 627.0
+offset_right = 1071.0
+offset_bottom = 1059.0
