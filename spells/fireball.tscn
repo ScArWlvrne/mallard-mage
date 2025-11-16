@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlwxs8cp35is0"]
+
+[ext_resource type="Script" uid="uid://ol1lthhq1b1k" path="res://spells/fireball.gd" id="1_vwueo"]
+[ext_resource type="Texture2D" uid="uid://dki3uuh1nfqfq" path="res://assets/Fireball.png" id="2_hj3xb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ffg60"]
+radius = 19.026299
+
+[node name="Fireball" type="Area2D"]
+script = ExtResource("1_vwueo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-29, 1)
+texture = ExtResource("2_hj3xb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ffg60")

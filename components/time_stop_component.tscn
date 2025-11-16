@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm4scab1v4y0y"]
+
+[ext_resource type="Script" uid="uid://cpmctcq5ty00" path="res://components/time_stop_component.gd" id="1_22p66"]
+
+[node name="TimeStop" type="Node"]
+script = ExtResource("1_22p66")

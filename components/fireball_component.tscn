@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2vv7v6234qwu"]
+
+[ext_resource type="Script" uid="uid://s0y532ljbrtl" path="res://components/fireball_component.gd" id="1_pev22"]
+
+[node name="Fireball" type="Node"]
+script = ExtResource("1_pev22")

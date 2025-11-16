@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://bychrkuq1clgu"]
+
+[ext_resource type="Script" uid="uid://7rl25qe7p6eu" path="res://components/casting_component.gd" id="1_mo2yl"]
+[ext_resource type="PackedScene" uid="uid://c87ulofge14qt" path="res://components/grapple_component.tscn" id="2_mebj7"]
+[ext_resource type="Script" uid="uid://d2arw8te2t0oc" path="res://components/grapple_component.gd" id="3_iqpwj"]
+[ext_resource type="PackedScene" uid="uid://c2vv7v6234qwu" path="res://components/fireball_component.tscn" id="4_vnax8"]
+[ext_resource type="PackedScene" uid="uid://cm4scab1v4y0y" path="res://components/time_stop_component.tscn" id="5_4fsy2"]
+
+[node name="Casting" type="Node" node_paths=PackedStringArray("fireball_component", "grapple_component", "time_stop_component")]
+script = ExtResource("1_mo2yl")
+fireball_component = NodePath("Fireball")
+grapple_component = NodePath("Grapple")
+time_stop_component = NodePath("TimeStop")
+
+[node name="Grapple" parent="." instance=ExtResource("2_mebj7")]
+script = ExtResource("3_iqpwj")
+
+[node name="TimeStop" parent="." instance=ExtResource("5_4fsy2")]
+
+[node name="Fireball" parent="." instance=ExtResource("4_vnax8")]
+speed = 300.0
