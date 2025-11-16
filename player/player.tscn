@@ -24,6 +24,9 @@ casting_component = NodePath("Casting")
 [node name="Casting" parent="." instance=ExtResource("8_hg6s5")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+process_physics_priority = 5
+light_mask = 3
+visibility_layer = 3
 position = Vector2(5, -70)
 texture = ExtResource("1_oul6g")
 offset = Vector2(-2.5, 30)
@@ -35,9 +38,15 @@ flip_h = true
 
 [node name="InputComponent" parent="." instance=ExtResource("5_rgyib")]
 
+[node name="GravityComponent" parent="." instance=ExtResource("2_rkbax")]
+script = ExtResource("4_qjkh3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+physics_interpolation_mode = 2
+position = Vector2(3, -69)
+shape = SubResource("RectangleShape2D_g6k8r")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(5, -70)
-limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="GravityComponent" parent="." instance=ExtResource("2_rkbax")]

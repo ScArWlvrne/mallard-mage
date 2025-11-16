@@ -10,3 +10,6 @@
 [node name="Node2D2" type="Node2D" parent="."]
 
 [node name="Player" parent="Node2D2" instance=ExtResource("2_d3l7n")]
+disable_mode = 2
+collision_layer = 15
+collision_mask = 241
