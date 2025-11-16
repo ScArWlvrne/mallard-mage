@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ik1x3m6bpa24"]
+[gd_scene load_steps=8 format=3 uid="uid://dh0ico1y7eobd"]
 
+[ext_resource type="Script" uid="uid://cimiso1c1u4an" path="res://Level1/level_1_singleplayer.gd" id="1_5vldb"]
 [ext_resource type="PackedScene" uid="uid://jiekd2rosn76" path="res://Level1/outsideCastle.tscn" id="1_7gjwk"]
 [ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="2_38dlg"]
 [ext_resource type="PackedScene" uid="uid://bsbj07i5t4yv4" path="res://enemies/enemy.tscn" id="3_qxdwo"]
+[ext_resource type="Texture2D" uid="uid://cei7ykcd5r35v" path="res://assets/mana_background.png" id="4_4c26r"]
+[ext_resource type="Texture2D" uid="uid://ccnrmmjjga0vm" path="res://assets/mana_outline.png" id="5_5vldb"]
+[ext_resource type="Texture2D" uid="uid://ccks6ga6dvuuu" path="res://assets/mana_fill.png" id="6_w4wvo"]
 
 [node name="GameSingleplayer" type="Node"]
+script = ExtResource("1_5vldb")
 
 [node name="OutsideCastle" parent="." instance=ExtResource("1_7gjwk")]
 position = Vector2(886, 259)
@@ -20,9 +25,20 @@ slide_on_ceiling = false
 [node name="Enemy1" parent="Level1" instance=ExtResource("3_qxdwo")]
 position = Vector2(533, 30)
 scale = Vector2(0.13, 0.13)
-collision_mask = 6
 
 [node name="Enemy2" parent="Level1" instance=ExtResource("3_qxdwo")]
 position = Vector2(210, 56)
 scale = Vector2(0.13, 0.13)
-collision_mask = 6
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="ManaBar" type="TextureProgressBar" parent="UILayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 60.0
+scale = Vector2(2, 2)
+fill_mode = 3
+texture_under = ExtResource("4_4c26r")
+texture_over = ExtResource("5_5vldb")
+texture_progress = ExtResource("6_w4wvo")

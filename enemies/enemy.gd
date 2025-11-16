@@ -13,6 +13,9 @@ var is_paused: bool = false
 @onready var sprite := $Sprite2D as Sprite2D 
 @onready var animation_player := $AnimationPlayer as AnimationPlayer 
 
+func _ready() -> void:
+	self.add_to_group("Enemies")
+
 func _process(_delta): 
 	if Input.is_action_pressed("time_stop"): 
 		is_paused = true 
@@ -33,8 +36,8 @@ func _process(_delta):
 		
 @export_subgroup("Nodes") 
 @export var gravity_component: GravityComponent 
-# @export var input_component: InputComponent 
 @export var movement_component: MovementComponent 
+@export var mana_potion_scene: PackedScene
 
 var direction: int = -1  # start going left
 
@@ -64,6 +67,13 @@ func _physics_process(delta: float) -> void:
 func destroy() -> void: 
 	_state = State.DEAD 
 	velocity = Vector2.ZERO 
+	
+	if mana_potion_scene and randf() < 0.3:
+		var potion = mana_potion_scene.instantiate()
+		get_parent().add_child(potion)
+		potion.global_position = global_position
+	
+	queue_free() 
 	
 func get_new_animation() -> StringName: 
 	var animation_new: StringName 

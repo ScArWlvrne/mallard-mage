@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsbj07i5t4yv4"]
+[gd_scene load_steps=8 format=3 uid="uid://bsbj07i5t4yv4"]
 
 [ext_resource type="Script" uid="uid://d3onars30r1qi" path="res://enemies/enemy.gd" id="1_07tka"]
 [ext_resource type="Texture2D" uid="uid://bsuk5koirxtc5" path="res://assets/enemy.png" id="1_fw1ev"]
+[ext_resource type="PackedScene" uid="uid://bf4ys54e32e3h" path="res://drops/mana_drop.tscn" id="2_3t1x0"]
 [ext_resource type="PackedScene" uid="uid://bubxu3y84jbtm" path="res://components/gravity_component.tscn" id="2_a6vjd"]
 [ext_resource type="Script" uid="uid://dtabjq4h2a506" path="res://components/gravity_component.gd" id="3_07tka"]
 [ext_resource type="PackedScene" uid="uid://dge2dmjl1uf55" path="res://components/movement_component.tscn" id="4_3t1x0"]
@@ -9,12 +10,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7frlh"]
 size = Vector2(520, 568)
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "movement_component")]
-collision_layer = 6
-collision_mask = 6
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "movement_component") groups=["Enemies"]]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_07tka")
 gravity_component = NodePath("GravityComponent")
 movement_component = NodePath("MovementComponent")
+mana_potion_scene = ExtResource("2_3t1x0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1.5258789e-05)
