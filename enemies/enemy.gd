@@ -13,17 +13,24 @@ var is_paused: bool = false
 @onready var sprite := $Sprite2D as Sprite2D 
 @onready var animation_player := $AnimationPlayer as AnimationPlayer 
 
+func pause():
+	is_paused = true
+	velocity = Vector2.ZERO  # stop movement immediately
+
+func resume():
+	is_paused = false
+
 func _ready() -> void:
 	self.add_to_group("Enemies")
+	
+	var time_stop_component = get_tree().get_first_node_in_group("TimeStopComponent")
+	if time_stop_component:
+		time_stop_component.time_stop_triggered.connect(_on_time_stop_triggered)
 
-func _process(_delta): 
-	if Input.is_action_pressed("time_stop"): 
-		is_paused = true 
-	if is_paused: 
-		print("Paused") 
-		velocity.x = 0 
-		velocity.y = 0 
-	return 
+func _on_time_stop_triggered(active: bool) -> void:
+	is_paused = active
+func _process(_delta) -> void: 
+	pass
 	
 #func _physics_process(delta: float) -> void: 
 	#if _state == State.WALKING and velocity.is_zero_approx() and not Input.is_action_pressed("time_stop"): 
@@ -42,6 +49,8 @@ func _process(_delta):
 var direction: int = -1  # start going left
 
 func _physics_process(delta: float) -> void:
+	if is_paused:
+		return  # skip logic when paused
 	gravity_component.handle_gravity(self, delta)
 
 	# Move based on current direction

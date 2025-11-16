@@ -9,6 +9,9 @@ var is_time_stopped: bool = false
 @onready var mana_component := get_parent().get_parent().get_node("ManaComponent")
 @onready var mana_drain_timer: Timer = $ManaDrainTimer
 
+func _ready() -> void:
+	add_to_group("TimeStopComponent")
+
 func _spawn_particles():
 	if particle_scene:
 		var particles = particle_scene.instantiate()
