@@ -9,9 +9,10 @@ var fireball_scene: PackedScene = preload("res://spells/fireball.tscn")
 func cast() -> void:
 	print("I cast fireball!")
 	var player = get_parent().get_parent()
+	var arrow = player.get_node("AimingArrowComponent")
 	var fireball = fireball_scene.instantiate()
 	get_tree().current_scene.add_child(fireball)
-	var position = player.global_position # TODO: replace with arrow position when reimplemented
-	var angle = 0 # TODO: replace with arrow angle later
+	var position = arrow.global_position 
+	var angle = arrow.global_rotation
 	
 	fireball.shoot(position, angle)

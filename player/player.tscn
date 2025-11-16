@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyjjwdldinojg"]
+[gd_scene load_steps=11 format=3 uid="uid://dyjjwdldinojg"]
 
 [ext_resource type="Texture2D" uid="uid://cf6bxrh5ccvx3" path="res://assets/duck.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://d04o2ewfm33s" path="res://player/player.gd" id="1_yw30f"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dge2dmjl1uf55" path="res://components/movement_component.tscn" id="7_8t03j"]
 [ext_resource type="PackedScene" uid="uid://dd22uvhl1tudm" path="res://components/jump_component.tscn" id="7_boad6"]
 [ext_resource type="PackedScene" uid="uid://bychrkuq1clgu" path="res://components/casting_component.tscn" id="8_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://bjm3ycof02aa3" path="res://components/aiming_arrow_component.tscn" id="9_hg6s5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rgyib"]
 radius = 18.0
@@ -41,11 +42,11 @@ flip_h = true
 [node name="GravityComponent" parent="." instance=ExtResource("2_rkbax")]
 script = ExtResource("4_qjkh3")
 
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
-
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, -38.5)
 shape = SubResource("CapsuleShape2D_rgyib")
+
+[node name="AimingArrowComponent" parent="." instance=ExtResource("9_hg6s5")]
