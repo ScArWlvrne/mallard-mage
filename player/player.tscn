@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyjjwdldinojg"]
+[gd_scene load_steps=10 format=3 uid="uid://dyjjwdldinojg"]
 
 [ext_resource type="Texture2D" uid="uid://cf6bxrh5ccvx3" path="res://assets/duck.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://d04o2ewfm33s" path="res://player/player.gd" id="1_yw30f"]
@@ -7,17 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://c6ml63ey4ihma" path="res://components/input_component.tscn" id="5_rgyib"]
 [ext_resource type="PackedScene" uid="uid://dge2dmjl1uf55" path="res://components/movement_component.tscn" id="7_8t03j"]
 [ext_resource type="PackedScene" uid="uid://dd22uvhl1tudm" path="res://components/jump_component.tscn" id="7_boad6"]
+[ext_resource type="PackedScene" uid="uid://bychrkuq1clgu" path="res://components/casting_component.tscn" id="8_hg6s5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
 radius = 22.0
 height = 68.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "casting_component")]
 script = ExtResource("1_yw30f")
 gravity_component = NodePath("GravityComponent")
 input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
 jump_component = NodePath("JumpComponent")
+casting_component = NodePath("CastingComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
@@ -34,3 +36,5 @@ script = ExtResource("4_qjkh3")
 [node name="MovementComponent" parent="." instance=ExtResource("7_8t03j")]
 
 [node name="JumpComponent" parent="." instance=ExtResource("7_boad6")]
+
+[node name="CastingComponent" parent="." instance=ExtResource("8_hg6s5")]
