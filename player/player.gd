@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var movement_component: MovementComponent
 @export var jump_component: JumpComponent
 @export var casting_component: CastingComponent
+@export var aiming_arrow_component: AimingArrowComponent
 
 var current_spell = 0
 
@@ -20,6 +21,10 @@ func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self, delta)
 	movement_component.handle_horizontal_movement(self, input_component.input_horizontal)
 	jump_component.handle_jump(self, input_component.get_jump_input())
+	
+	if velocity.x != 0:
+		$Sprite2D.scale.x = sign(velocity.x)
+		aiming_arrow_component.set_facing_direction(sign(velocity.x))
 	
 	move_and_slide()
 	

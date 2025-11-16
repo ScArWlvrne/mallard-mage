@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	rotation = angle_rad
 	scale.x = direction  # Flip horizontally if needed
 	scale.y = direction  # Flip vertically too, if needed
+	position.x = direction * 55
 
 func set_facing_direction(dir: int) -> void:
 	direction = dir
