@@ -14,8 +14,7 @@ func cast() -> void:
 	# Connect the time stop signal
 	var time_stop = get_parent().get_node("TimeStop")
 	time_stop.connect("time_stop_triggered", Callable(fireball, "_on_time_stop_triggered"))
-	var player_layer = get_tree().current_scene.get_node("PlayerLayer")
-	player_layer.add_child(fireball)
+	get_tree().current_scene.add_child(fireball)
 	var arrow_visual = arrow.get_node("ArrowSprite")  # or whatever name you used
 	var position = arrow_visual.global_position
 	var angle = arrow_visual.global_rotation

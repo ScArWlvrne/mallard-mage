@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyjjwdldinojg"]
+[gd_scene load_steps=13 format=3 uid="uid://dyjjwdldinojg"]
 
 [ext_resource type="Texture2D" uid="uid://cf6bxrh5ccvx3" path="res://assets/duck.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://d04o2ewfm33s" path="res://player/player.gd" id="1_yw30f"]
@@ -7,14 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://c6ml63ey4ihma" path="res://components/input_component.tscn" id="5_rgyib"]
 [ext_resource type="PackedScene" uid="uid://dge2dmjl1uf55" path="res://components/movement_component.tscn" id="7_8t03j"]
 [ext_resource type="PackedScene" uid="uid://dd22uvhl1tudm" path="res://components/jump_component.tscn" id="7_boad6"]
-[ext_resource type="PackedScene" path="res://components/casting_component.tscn" id="8_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://bychrkuq1clgu" path="res://components/casting_component.tscn" id="8_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://bjm3ycof02aa3" path="res://components/aiming_arrow_component.tscn" id="9_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://cgf1xpqebdca2" path="res://components/mana_component.tscn" id="10_2ieo8"]
+[ext_resource type="Script" uid="uid://c28earsdgaiv8" path="res://components/mana_component.gd" id="11_ebec5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rgyib"]
 radius = 18.0
 height = 73.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "casting_component", "aiming_arrow_component")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "casting_component", "aiming_arrow_component", "mana_component")]
 script = ExtResource("1_yw30f")
 gravity_component = NodePath("GravityComponent")
 input_component = NodePath("InputComponent")
@@ -22,6 +24,7 @@ movement_component = NodePath("MovementComponent")
 jump_component = NodePath("JumpComponent")
 casting_component = NodePath("Casting")
 aiming_arrow_component = NodePath("AimingArrowComponent")
+mana_component = NodePath("ManaComponent")
 
 [node name="Casting" parent="." instance=ExtResource("8_hg6s5")]
 
@@ -52,3 +55,6 @@ position = Vector2(5, -38.5)
 shape = SubResource("CapsuleShape2D_rgyib")
 
 [node name="AimingArrowComponent" parent="." instance=ExtResource("9_hg6s5")]
+
+[node name="ManaComponent" parent="." instance=ExtResource("10_2ieo8")]
+script = ExtResource("11_ebec5")

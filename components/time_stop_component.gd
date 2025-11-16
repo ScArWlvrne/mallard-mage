@@ -4,27 +4,39 @@ extends Node
 signal time_stop_triggered(active: bool)
 
 @export var particle_scene: PackedScene
-@onready var gray_filter := get_tree().get_root().get_node("/root/TestChamber/BackgroundLayer/ColorRect")
 var is_time_stopped: bool = false
+
+@onready var mana_component := get_parent().get_parent().get_node("ManaComponent")
+@onready var mana_drain_timer: Timer = $ManaDrainTimer
 
 func _spawn_particles():
 	if particle_scene:
 		var particles = particle_scene.instantiate()
 		particles.global_position = get_parent().get_parent().global_position
-		var player_layer = get_tree().current_scene.get_node("PlayerLayer")
-		player_layer.add_child(particles)
+		get_tree().current_scene.add_child(particles)
 		
 		var particles_node = particles.get_node("GPUParticles2D")
 		particles_node.emitting = true
 
 func cast() -> void:
 	is_time_stopped = !is_time_stopped
-	gray_filter.visible = !gray_filter.visible
+	emit_signal("time_stop_triggered", is_time_stopped)
 	
 	if is_time_stopped:
-		print("Time stop triggered!")
-		emit_signal("time_stop_triggered", is_time_stopped)
-		_spawn_particles()
+		if mana_component._subtract_mana(1):
+			print("Time stop triggered!")
+			_spawn_particles()
+			mana_drain_timer.start()
+		else:
+			print("Not enough mana to start time stop.")
+			is_time_stopped = false
 	else:
 		print("Time resumed.")
-		emit_signal("time_stop_triggered", is_time_stopped)
+		mana_drain_timer.stop()
+
+func _on_mana_drain_timer_timeout() -> void:
+	if not mana_component._subtract_mana(1):
+		print("Mana depleted — stopping time.")
+		is_time_stopped = false
+		emit_signal("time_stop_triggered", false)
+		mana_drain_timer.stop()

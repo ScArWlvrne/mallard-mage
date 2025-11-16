@@ -1,49 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmg8unva5ufgo"]
+[gd_scene load_steps=7 format=3 uid="uid://dmg8unva5ufgo"]
 
+[ext_resource type="Script" uid="uid://dlh2gridkpx24" path="res://levels/test_chamber.gd" id="1_ia5te"]
 [ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="1_ybxup"]
-[ext_resource type="Shader" uid="uid://deynifvl2c877" path="res://levels/test_chamber.gdshader" id="2_v6jr0"]
+[ext_resource type="Texture2D" uid="uid://cei7ykcd5r35v" path="res://assets/mana_background.png" id="2_j1k86"]
+[ext_resource type="Texture2D" uid="uid://ccnrmmjjga0vm" path="res://assets/mana_outline.png" id="3_ia5te"]
+[ext_resource type="Texture2D" uid="uid://ccks6ga6dvuuu" path="res://assets/mana_fill.png" id="4_bir7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hw5fp"]
 size = Vector2(293, 40)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dj2jv"]
-shader = ExtResource("2_v6jr0")
-
 [node name="TestChamber" type="Node2D"]
+script = ExtResource("1_ia5te")
 
-[node name="PlayerLayer" type="CanvasLayer" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_ybxup")]
 
-[node name="Player" parent="PlayerLayer" instance=ExtResource("1_ybxup")]
-
-[node name="BackgroundLayer" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer"]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(7, 132)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(147, 19)
 shape = SubResource("RectangleShape2D_hw5fp")
 
-[node name="ColorRect" type="ColorRect" parent="BackgroundLayer/StaticBody2D"]
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
 offset_right = 294.0
 offset_bottom = 40.0
 
-[node name="ColorRect2" type="ColorRect" parent="BackgroundLayer/StaticBody2D"]
+[node name="ColorRect2" type="ColorRect" parent="StaticBody2D"]
 offset_left = 187.0
 offset_top = 5.0
 offset_right = 227.0
 offset_bottom = 45.0
 color = Color(0.7708684, 0.068354286, 0.43711433, 1)
 
-[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
-unique_name_in_owner = true
-visible = false
-material = SubResource("ShaderMaterial_dj2jv")
-use_parent_material = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.5019608, 0.5019608, 0.5019608, 0)
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="ManaBar" type="TextureProgressBar" parent="UILayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 60.0
+scale = Vector2(2, 2)
+fill_mode = 3
+texture_under = ExtResource("2_j1k86")
+texture_over = ExtResource("3_ia5te")
+texture_progress = ExtResource("4_bir7d")

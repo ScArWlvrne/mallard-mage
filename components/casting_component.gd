@@ -5,6 +5,7 @@ extends Node
 @export var grapple_component: GrappleComponent
 @export var time_stop_component: TimeStopComponent
 
+@onready var mana_component := get_parent().get_node("ManaComponent")
 
 enum Spell {
 	NONE,
@@ -20,10 +21,17 @@ func cast_spell(spell: Spell, wants_to_cast: bool) -> void:
 	print("Casting a spell...")
 	match spell:
 		Spell.FIREBALL:
-			fireball_component.cast()
+			if mana_component._subtract_mana(10):
+				fireball_component.cast()
+			else:
+				print("Not enough mana")
 		Spell.GRAPPLE:
-			grapple_component.cast()
+			print("Not Implemented")
+			# grapple_component.cast()
 		Spell.TIME_STOP:
-			time_stop_component.cast()
+			if mana_component._subtract_mana(1):
+				time_stop_component.cast()
+			else:
+				print("Not enough mana")
 	
 	

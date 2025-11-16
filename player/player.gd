@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var jump_component: JumpComponent
 @export var casting_component: CastingComponent
 @export var aiming_arrow_component: AimingArrowComponent
+@export var mana_component: ManaComponent
 
 enum Spell {
 	NONE,
