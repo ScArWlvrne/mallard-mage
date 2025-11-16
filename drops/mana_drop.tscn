@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf4ys54e32e3h"]
+
+[ext_resource type="Script" uid="uid://s6vvp8rqxyt7" path="res://drops/mana_drop.gd" id="1_c0lsx"]
+[ext_resource type="Texture2D" uid="uid://dubdjr5x1upfn" path="res://assets/mana_potion.png" id="1_m85mv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c0lsx"]
+
+[node name="ManaDrop" type="Area2D"]
+script = ExtResource("1_c0lsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m85mv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_c0lsx")
