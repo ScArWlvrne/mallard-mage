@@ -4,7 +4,6 @@
 
 [node name="ui_slot" type="Button"]
 clip_contents = true
-custom_minimum_size = Vector2(320, 320)
 offset_right = 320.0
 offset_bottom = 320.0
 script = ExtResource("1_wtqpv")

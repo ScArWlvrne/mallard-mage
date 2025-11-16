@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmg8unva5ufgo"]
+[gd_scene load_steps=9 format=3 uid="uid://dmg8unva5ufgo"]
 
 [ext_resource type="Script" uid="uid://dlh2gridkpx24" path="res://levels/test_chamber/test_chamber.gd" id="1_ia5te"]
 [ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="1_ybxup"]
 [ext_resource type="Texture2D" uid="uid://cei7ykcd5r35v" path="res://assets/mana_background.png" id="2_j1k86"]
+[ext_resource type="PackedScene" uid="uid://dndsqqd3t4gh" path="res://gui/ui.tscn" id="3_3r6b2"]
 [ext_resource type="Texture2D" uid="uid://ccnrmmjjga0vm" path="res://assets/mana_outline.png" id="3_ia5te"]
 [ext_resource type="Texture2D" uid="uid://ccks6ga6dvuuu" path="res://assets/mana_fill.png" id="4_bir7d"]
 [ext_resource type="PackedScene" uid="uid://bf4ys54e32e3h" path="res://drops/mana_drop.tscn" id="6_bir7d"]
@@ -34,6 +35,13 @@ offset_bottom = 45.0
 color = Color(0.7708684, 0.068354286, 0.43711433, 1)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Ui" parent="UILayer" instance=ExtResource("3_3r6b2")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
 
 [node name="ManaBar" type="TextureProgressBar" parent="UILayer"]
 offset_left = 10.0
