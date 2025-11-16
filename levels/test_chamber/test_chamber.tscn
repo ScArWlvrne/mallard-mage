@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dmg8unva5ufgo"]
 
-[ext_resource type="Script" uid="uid://dlh2gridkpx24" path="res://levels/test_chamber.gd" id="1_ia5te"]
+[ext_resource type="Script" uid="uid://dlh2gridkpx24" path="res://levels/test_chamber/test_chamber.gd" id="1_ia5te"]
 [ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="1_ybxup"]
 [ext_resource type="Texture2D" uid="uid://cei7ykcd5r35v" path="res://assets/mana_background.png" id="2_j1k86"]
 [ext_resource type="Texture2D" uid="uid://ccnrmmjjga0vm" path="res://assets/mana_outline.png" id="3_ia5te"]
