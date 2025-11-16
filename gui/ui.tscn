@@ -32,6 +32,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 718.0
 offset_bottom = 718.0
+scale = Vector2(0.25, 0.125)
 
 [node name="ui_slot" parent="HBoxContainer" instance=ExtResource("1_uj4x7")]
 layout_mode = 2
