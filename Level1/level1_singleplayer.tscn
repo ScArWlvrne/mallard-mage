@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ik1x3m6bpa24"]
+[gd_scene load_steps=4 format=3 uid="uid://ik1x3m6bpa24"]
 
 [ext_resource type="PackedScene" uid="uid://jiekd2rosn76" path="res://Level1/outsideCastle.tscn" id="1_7gjwk"]
 [ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="2_38dlg"]
+[ext_resource type="PackedScene" uid="uid://bsbj07i5t4yv4" path="res://enemies/enemy.tscn" id="3_qxdwo"]
 
 [node name="GameSingleplayer" type="Node"]
 
@@ -11,6 +12,27 @@ position = Vector2(886, 259)
 [node name="Level1" type="Node2D" parent="."]
 position = Vector2(356, 103)
 
-[node name="Player" parent="Level1" instance=ExtResource("2_38dlg")]
+[node name="Player2" parent="Level1" instance=ExtResource("2_38dlg")]
 position = Vector2(476, 441)
 scale = Vector2(0.67, 0.67)
+slide_on_ceiling = false
+
+[node name="Enemy1" parent="Level1" instance=ExtResource("3_qxdwo")]
+position = Vector2(533, 56)
+scale = Vector2(0.13, 0.13)
+
+[node name="FloorDetectorLeft" type="RayCast2D" parent="Level1/Enemy1"]
+target_position = Vector2(-569.23096, 476.92316)
+
+[node name="FloorDetectorRight" type="RayCast2D" parent="Level1/Enemy1"]
+target_position = Vector2(515.3843, 484.61542)
+
+[node name="Enemy2" parent="Level1" instance=ExtResource("3_qxdwo")]
+position = Vector2(605, 395)
+scale = Vector2(0.13, 0.13)
+
+[node name="FloorDetectorLeft" type="RayCast2D" parent="Level1/Enemy2"]
+target_position = Vector2(-607.6924, 276.9231)
+
+[node name="FloorDetectorRight" type="RayCast2D" parent="Level1/Enemy2"]
+target_position = Vector2(515.3843, 276.9231)
