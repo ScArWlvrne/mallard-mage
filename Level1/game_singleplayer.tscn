@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://ik1x3m6bpa24"]
 
-[ext_resource type="PackedScene" uid="uid://jiekd2rosn76" path="res://Level1/Background Images/outsideCastle.tscn" id="1_o16af"]
+[ext_resource type="PackedScene" uid="uid://jiekd2rosn76" path="res://Level1/outsideCastle.tscn" id="1_o16af"]
 [ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="2_skihj"]
 
 [node name="GameSingleplayer" type="Node"]
 
 [node name="Node2D" parent="." instance=ExtResource("1_o16af")]
-position = Vector2(356, 103)
+position = Vector2(886, 259)
 
 [node name="Level 1" type="Node2D" parent="."]
 position = Vector2(356, 103)
 
 [node name="Player" parent="Level 1" instance=ExtResource("2_skihj")]
-position = Vector2(495, 224)
+position = Vector2(163, 131)
