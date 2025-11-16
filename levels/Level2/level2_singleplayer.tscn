@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhf83npdxv6hy"]
+[gd_scene load_steps=10 format=3 uid="uid://bhf83npdxv6hy"]
 
 [ext_resource type="PackedScene" uid="uid://c836cvr7dwqx0" path="res://levels/Level2/insideCastle.tscn" id="1_3qdpf"]
+[ext_resource type="Script" uid="uid://dkbsjtp5ijnly" path="res://levels/Level2/level_2_singleplayer.gd" id="1_m0sjk"]
 [ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="2_d3l7n"]
 [ext_resource type="PackedScene" uid="uid://bsbj07i5t4yv4" path="res://enemies/enemy.tscn" id="3_d3l7n"]
 [ext_resource type="PackedScene" uid="uid://cl30nlalr8wlp" path="res://levels/goal_flag.tscn" id="4_yspx4"]
+[ext_resource type="Texture2D" uid="uid://cei7ykcd5r35v" path="res://assets/mana_background.png" id="5_o2u0t"]
+[ext_resource type="Texture2D" uid="uid://ccnrmmjjga0vm" path="res://assets/mana_outline.png" id="6_m0sjk"]
+[ext_resource type="Texture2D" uid="uid://ccks6ga6dvuuu" path="res://assets/mana_fill.png" id="7_xvokb"]
+[ext_resource type="PackedScene" uid="uid://dndsqqd3t4gh" path="res://gui/ui.tscn" id="8_1wnu0"]
 
 [node name="Level2Singleplayer" type="Node"]
+script = ExtResource("1_m0sjk")
 
 [node name="InsideCastle" parent="." instance=ExtResource("1_3qdpf")]
 
@@ -30,3 +36,24 @@ scale = Vector2(0.1, 0.1)
 [node name="GoalFlag" parent="Level2" instance=ExtResource("4_yspx4")]
 position = Vector2(-101, -306)
 next_scene_path = "res://levels/level3/level3_singleplayer.tscn"
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="ManaBar" type="TextureProgressBar" parent="UILayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 60.0
+scale = Vector2(2, 2)
+fill_mode = 3
+texture_under = ExtResource("5_o2u0t")
+texture_over = ExtResource("6_m0sjk")
+texture_progress = ExtResource("7_xvokb")
+metadata/_edit_use_anchors_ = true
+
+[node name="Ui" parent="UILayer" instance=ExtResource("8_1wnu0")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
