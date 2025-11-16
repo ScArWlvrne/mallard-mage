@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cus3ia8t5mtfq"]
+[gd_scene load_steps=10 format=3 uid="uid://cus3ia8t5mtfq"]
 
 [ext_resource type="PackedScene" uid="uid://ccrv3fq5ysggu" path="res://levels/level3/dungeon.tscn" id="1_5m431"]
+[ext_resource type="Script" uid="uid://rg7yjdjqbl8q" path="res://levels/level3/level_3_singleplayer.gd" id="1_tstey"]
 [ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="2_8n7nr"]
 [ext_resource type="PackedScene" uid="uid://bsbj07i5t4yv4" path="res://enemies/enemy.tscn" id="3_pfblr"]
 [ext_resource type="PackedScene" uid="uid://cl30nlalr8wlp" path="res://levels/goal_flag.tscn" id="4_8n7nr"]
+[ext_resource type="Texture2D" uid="uid://cei7ykcd5r35v" path="res://assets/mana_background.png" id="5_murmt"]
+[ext_resource type="Texture2D" uid="uid://ccnrmmjjga0vm" path="res://assets/mana_outline.png" id="6_tstey"]
+[ext_resource type="Texture2D" uid="uid://ccks6ga6dvuuu" path="res://assets/mana_fill.png" id="7_prb21"]
+[ext_resource type="PackedScene" uid="uid://dndsqqd3t4gh" path="res://gui/ui.tscn" id="8_qwhom"]
 
 [node name="Level3Singleplayer" type="Node2D"]
+script = ExtResource("1_tstey")
 
 [node name="Dungeon" parent="." instance=ExtResource("1_5m431")]
 position = Vector2(-1636.5691, -82.86426)
@@ -134,3 +140,24 @@ collision_mask = 7
 position = Vector2(-1744.9967, -531.832)
 scale = Vector2(3, 3)
 next_scene_path = "res://levels/gameover/game_won.tscn"
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="ManaBar" type="TextureProgressBar" parent="UILayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 60.0
+scale = Vector2(2, 2)
+fill_mode = 3
+texture_under = ExtResource("5_murmt")
+texture_over = ExtResource("6_tstey")
+texture_progress = ExtResource("7_prb21")
+metadata/_edit_use_anchors_ = true
+
+[node name="Ui" parent="UILayer" instance=ExtResource("8_qwhom")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
