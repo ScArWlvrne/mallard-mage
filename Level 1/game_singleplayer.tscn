@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ik1x3m6bpa24"]
-
-[ext_resource type="PackedScene" uid="uid://jiekd2rosn76" path="res://Level 1/Background Images/outsideCastle.tscn" id="1_o16af"]
-
-[node name="GameSingleplayer" type="Node2D"]
-
-[node name="Level 1" type="Node" parent="."]
-
-[node name="ParallaxBackground" parent="Level 1" instance=ExtResource("1_o16af")]

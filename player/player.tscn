@@ -7,26 +7,44 @@
 [ext_resource type="PackedScene" uid="uid://c6ml63ey4ihma" path="res://components/input_component.tscn" id="5_rgyib"]
 [ext_resource type="PackedScene" uid="uid://dge2dmjl1uf55" path="res://components/movement_component.tscn" id="7_8t03j"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
-radius = 22.0
-height = 68.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6k8r"]
+size = Vector2(60, 75)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component")]
 script = ExtResource("1_yw30f")
-gravity_component = NodePath("GravityComponent")
-input_component = NodePath("InputComponent")
-movement_component = NodePath("MovementComponent")
+gravity_component = NodePath("CanvasLayer/GravityComponent")
+input_component = NodePath("CanvasLayer/InputComponent")
+movement_component = NodePath("CanvasLayer/MovementComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(5, -70)
 texture = ExtResource("1_oul6g")
+offset = Vector2(-2.5, 30)
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_rkbax")
+position = Vector2(5, -38.5)
+shape = SubResource("RectangleShape2D_g6k8r")
 
-[node name="GravityComponent" parent="." instance=ExtResource("2_rkbax")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="platform detector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 6)
+collision_mask = 8
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -30)
+zoom = Vector2(0.8, 0.8)
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_screen = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="InputComponent" parent="CanvasLayer" instance=ExtResource("5_rgyib")]
+
+[node name="MovementComponent" parent="CanvasLayer" instance=ExtResource("7_8t03j")]
+
+[node name="GravityComponent" parent="CanvasLayer" instance=ExtResource("2_rkbax")]
 script = ExtResource("4_qjkh3")
-
-[node name="InputComponent" parent="." instance=ExtResource("5_rgyib")]
-
-[node name="MovementComponent" parent="." instance=ExtResource("7_8t03j")]
