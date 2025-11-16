@@ -11,3 +11,6 @@ func shoot(start_position: Vector2, angle_radians: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	position += velocity * delta
+	
+func _on_time_stop_triggered(active: bool):
+	set_physics_process(not active)

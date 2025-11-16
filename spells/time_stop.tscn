@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfu3h40klyi2s"]
+
+[ext_resource type="Texture2D" uid="uid://dnwf7da3cl3da" path="res://assets/time_stop_particle.png" id="1_366ln"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pfikp"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 98, 0)
+color = Color(1, 1, 0, 1)
+
+[node name="Timestop" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 100
+z_as_relative = false
+emitting = false
+amount = 100
+texture = ExtResource("1_366ln")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_pfikp")
