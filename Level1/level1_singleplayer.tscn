@@ -18,25 +18,11 @@ scale = Vector2(0.67, 0.67)
 slide_on_ceiling = false
 
 [node name="Enemy1" parent="Level1" instance=ExtResource("3_qxdwo")]
-position = Vector2(533, 56)
+position = Vector2(533, 30)
 scale = Vector2(0.13, 0.13)
-collision_layer = 2
-collision_mask = 4
-
-[node name="FloorDetectorLeft" type="RayCast2D" parent="Level1/Enemy1"]
-target_position = Vector2(-776.92334, 338.46167)
-
-[node name="FloorDetectorRight" type="RayCast2D" parent="Level1/Enemy1"]
-target_position = Vector2(723.07666, 315.38464)
+collision_mask = 6
 
 [node name="Enemy2" parent="Level1" instance=ExtResource("3_qxdwo")]
-position = Vector2(605, 395)
+position = Vector2(210, 56)
 scale = Vector2(0.13, 0.13)
-collision_layer = 2
-collision_mask = 4
-
-[node name="FloorDetectorLeft" type="RayCast2D" parent="Level1/Enemy2"]
-target_position = Vector2(-761.5386, 284.61548)
-
-[node name="FloorDetectorRight" type="RayCast2D" parent="Level1/Enemy2"]
-target_position = Vector2(715.3843, 284.61548)
+collision_mask = 6
