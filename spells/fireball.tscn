@@ -17,4 +17,5 @@ texture = ExtResource("2_hj3xb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
+visibility_layer = 2
 shape = SubResource("CircleShape2D_ffg60")

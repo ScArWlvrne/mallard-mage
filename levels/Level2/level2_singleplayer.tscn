@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhf83npdxv6hy"]
 
-[ext_resource type="PackedScene" uid="uid://c836cvr7dwqx0" path="res://Level2/insideCastle.tscn" id="1_3qdpf"]
+[ext_resource type="PackedScene" uid="uid://c836cvr7dwqx0" path="res://levels/Level2/insideCastle.tscn" id="1_3qdpf"]
 [ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="2_d3l7n"]
 [ext_resource type="PackedScene" uid="uid://bsbj07i5t4yv4" path="res://enemies/enemy.tscn" id="3_d3l7n"]
 
