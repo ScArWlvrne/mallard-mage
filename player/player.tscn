@@ -41,16 +41,10 @@ flip_h = true
 [node name="GravityComponent" parent="." instance=ExtResource("2_rkbax")]
 script = ExtResource("4_qjkh3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-physics_interpolation_mode = 2
-position = Vector2(3, -69)
-shape = SubResource("RectangleShape2D_g6k8r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
-[node name="GravityComponent" parent="." instance=ExtResource("2_rkbax")]
-script = ExtResource("4_qjkh3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, -38.5)
