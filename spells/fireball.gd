@@ -3,6 +3,9 @@ extends Area2D
 @export var speed: float = 300.0 # pixels per second 
 var velocity: Vector2 = Vector2.ZERO 
 
+func _ready() -> void:
+	connect("body_entered", Callable(self, "_on_body_entered"))
+
 func shoot(start_position: Vector2, angle_radians: float) -> void: 
 	global_position = start_position # Set where the fireball spawns 
 	rotation = angle_radians # Visually rotate it 
@@ -10,6 +13,11 @@ func shoot(start_position: Vector2, angle_radians: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	position += velocity * delta
+	
+func _on_body_entered(body: Node) -> void:
+	if body is Enemy:
+		body.destroy()  # destroy the enemy
+		queue_free()       # destroy the fireball
 	
 func _on_time_stop_triggered(active: bool):
 	set_physics_process(not active)
