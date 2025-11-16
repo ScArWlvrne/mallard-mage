@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqmm021u010xr" path="res://assets/aiming_arrow.png" id="2_2hcjo"]
 
 [node name="AimingArrowComponent" type="Node2D"]
-position = Vector2(55, -35)
-scale = Vector2(5, 5)
+position = Vector2(0, -35)
 script = ExtResource("1_bmout")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

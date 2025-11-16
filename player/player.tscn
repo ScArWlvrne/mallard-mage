@@ -14,13 +14,14 @@
 radius = 18.0
 height = 73.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "casting_component")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "casting_component", "aiming_arrow_component")]
 script = ExtResource("1_yw30f")
 gravity_component = NodePath("GravityComponent")
 input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
 jump_component = NodePath("JumpComponent")
 casting_component = NodePath("Casting")
+aiming_arrow_component = NodePath("AimingArrowComponent")
 
 [node name="Casting" parent="." instance=ExtResource("8_hg6s5")]
 
