@@ -30,12 +30,15 @@ func _physics_process(delta: float) -> void:
 	
 func _process(delta: float) -> void:
 	if input_component.get_fireball_input():
+		aiming_arrow_component.show()
 		current_spell = Spell.FIREBALL
 		print(current_spell)
 	if input_component.get_grapple_input():
+		aiming_arrow_component.show()
 		current_spell = Spell.GRAPPLE
 		print(current_spell)
 	if input_component.get_time_stop_input():
+		aiming_arrow_component.hide()
 		current_spell = Spell.TIME_STOP
 		print(current_spell)
 		
