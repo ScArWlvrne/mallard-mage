@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3 uid="uid://cus3ia8t5mtfq"]
+
+[ext_resource type="PackedScene" uid="uid://ccrv3fq5ysggu" path="res://levels/level3/dungeon.tscn" id="1_5m431"]
+[ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="2_8n7nr"]
+[ext_resource type="PackedScene" uid="uid://bsbj07i5t4yv4" path="res://enemies/enemy.tscn" id="3_pfblr"]
+[ext_resource type="PackedScene" uid="uid://cl30nlalr8wlp" path="res://levels/goal_flag.tscn" id="4_8n7nr"]
+
+[node name="Level3Singleplayer" type="Node2D"]
+
+[node name="Dungeon" parent="." instance=ExtResource("1_5m431")]
+position = Vector2(-1636.5691, -82.86426)
+
+[node name="level3" type="Node2D" parent="."]
+
+[node name="Player" parent="level3" instance=ExtResource("2_8n7nr")]
+position = Vector2(-2073.7004, 494.06104)
+scale = Vector2(1.5, 1.5)
+
+[node name="Enemy" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-477.29175, -431.83563)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy2" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-2707.4954, -352.287)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy3" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-2585.3313, -852.3071)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy4" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-2193.2698, -843.78406)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy5" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-1826.7776, -852.3071)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy6" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-1403.4651, -849.4661)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy7" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-1039.814, -849.4661)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy8" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-673.322, -843.7841)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy9" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-389.21973, -846.6251)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy10" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-931.8552, -548.3177)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy11" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-1329.5984, -568.20483)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy12" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-1903.485, -622.1843)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy13" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-2244.4077, -613.66125)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy14" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-2690.4482, -647.75354)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy15" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-2406.3457, -340.92297)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy16" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-2071.105, -323.87683)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy17" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-1366.5313, -323.87683)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy18" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-997.19824, -332.3999)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy19" parent="level3" instance=ExtResource("3_pfblr")]
+position = Vector2(-536.9524, -105.11798)
+scale = Vector2(0.3, 0.3)
+
+[node name="GoalFlag" parent="level3" instance=ExtResource("4_8n7nr")]
+position = Vector2(-1744.9967, -531.832)
+scale = Vector2(3, 3)

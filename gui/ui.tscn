@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dndsqqd3t4gh"]
+
+[ext_resource type="PackedScene" uid="uid://hghot7dv38v0" path="res://gui/ui_slot.tscn" id="1_uj4x7"]
+[ext_resource type="Texture2D" uid="uid://dki3uuh1nfqfq" path="res://assets/Fireball.png" id="2_v62dg"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_cemxd"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_uj4x7"]
+events = [SubResource("InputEventKey_cemxd")]
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ui_slot" parent="HBoxContainer" instance=ExtResource("1_uj4x7")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_uj4x7")
+text = "fireball"
+icon = ExtResource("2_v62dg")
