@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cus3ia8t5mtfq"]
+[gd_scene load_steps=9 format=3 uid="uid://cus3ia8t5mtfq"]
 
 [ext_resource type="PackedScene" uid="uid://ccrv3fq5ysggu" path="res://levels/level3/dungeon.tscn" id="1_5m431"]
+[ext_resource type="Script" uid="uid://dejnosnnce51q" path="res://levels/level3/level_3_singleplayer.gd" id="1_murmt"]
 [ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="2_8n7nr"]
 [ext_resource type="PackedScene" uid="uid://bsbj07i5t4yv4" path="res://enemies/enemy.tscn" id="3_pfblr"]
 [ext_resource type="PackedScene" uid="uid://cl30nlalr8wlp" path="res://levels/goal_flag.tscn" id="4_8n7nr"]
+[ext_resource type="Texture2D" uid="uid://cei7ykcd5r35v" path="res://assets/mana_background.png" id="6_tstey"]
+[ext_resource type="Texture2D" uid="uid://ccnrmmjjga0vm" path="res://assets/mana_outline.png" id="7_prb21"]
+[ext_resource type="Texture2D" uid="uid://ccks6ga6dvuuu" path="res://assets/mana_fill.png" id="8_qwhom"]
 
-[node name="Level3Singleplayer" type="Node2D"]
+[node name="Level3Singleplayer" type="Node"]
+script = ExtResource("1_murmt")
 
 [node name="Dungeon" parent="." instance=ExtResource("1_5m431")]
 position = Vector2(-1636.5691, -82.86426)
@@ -95,3 +100,16 @@ scale = Vector2(0.3, 0.3)
 [node name="GoalFlag" parent="level3" instance=ExtResource("4_8n7nr")]
 position = Vector2(-1744.9967, -531.832)
 scale = Vector2(3, 3)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="ManaBar" type="TextureProgressBar" parent="UILayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 60.0
+scale = Vector2(2, 2)
+fill_mode = 3
+texture_under = ExtResource("6_tstey")
+texture_over = ExtResource("7_prb21")
+texture_progress = ExtResource("8_qwhom")
