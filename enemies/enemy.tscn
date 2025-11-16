@@ -11,8 +11,8 @@
 size = Vector2(520, 568)
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "movement_component") groups=["Enemies"]]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 6
+collision_mask = 6
 script = ExtResource("1_07tka")
 gravity_component = NodePath("GravityComponent")
 movement_component = NodePath("MovementComponent")
@@ -37,3 +37,11 @@ target_position = Vector2(-752, 256)
 
 [node name="Right" type="RayCast2D" parent="."]
 target_position = Vector2(720, 256)
+
+[node name="KillCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillCollision"]
+light_mask = 7
+visibility_layer = 7
+position = Vector2(-4, -28)
+shape = SubResource("RectangleShape2D_7frlh")

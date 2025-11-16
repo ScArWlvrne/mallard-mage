@@ -12,6 +12,8 @@ var is_paused: bool = false
 @onready var floor_detector_right := $FloorDetectorRight as RayCast2D 
 @onready var sprite := $Sprite2D as Sprite2D 
 @onready var animation_player := $AnimationPlayer as AnimationPlayer 
+@onready var hitbox := $KillCollision
+
 
 func pause():
 	is_paused = true
@@ -22,6 +24,7 @@ func resume():
 
 func _ready() -> void:
 	self.add_to_group("Enemies")
+	hitbox.body_entered.connect(_on_body_entered)
 	
 	var time_stop_component = get_tree().get_first_node_in_group("TimeStopComponent")
 	if time_stop_component:
@@ -92,3 +95,8 @@ func get_new_animation() -> StringName:
 		else: animation_new = &"walk" 
 	else: animation_new = &"destroy" 
 	return animation_new
+
+func _on_body_entered(body: Node) -> void:
+	if body is Player:
+		print("Touched player")
+		get_tree().change_scene_to_file("res://levels/gameover/game_over.tscn")
