@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dh0ico1y7eobd"]
+[gd_scene load_steps=10 format=3 uid="uid://dh0ico1y7eobd"]
 
 [ext_resource type="Script" uid="uid://cimiso1c1u4an" path="res://levels/Level1/level_1_singleplayer.gd" id="1_5vldb"]
 [ext_resource type="PackedScene" uid="uid://jiekd2rosn76" path="res://levels/Level1/outsideCastle.tscn" id="1_7gjwk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cei7ykcd5r35v" path="res://assets/mana_background.png" id="4_4c26r"]
 [ext_resource type="Texture2D" uid="uid://ccnrmmjjga0vm" path="res://assets/mana_outline.png" id="5_5vldb"]
 [ext_resource type="Texture2D" uid="uid://ccks6ga6dvuuu" path="res://assets/mana_fill.png" id="6_w4wvo"]
+[ext_resource type="PackedScene" uid="uid://dndsqqd3t4gh" path="res://gui/ui.tscn" id="9_3ejaf"]
 
 [node name="GameSingleplayer" type="Node"]
 script = ExtResource("1_5vldb")
@@ -46,3 +47,10 @@ fill_mode = 3
 texture_under = ExtResource("4_4c26r")
 texture_over = ExtResource("5_5vldb")
 texture_progress = ExtResource("6_w4wvo")
+
+[node name="Ui" parent="UILayer" instance=ExtResource("9_3ejaf")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
