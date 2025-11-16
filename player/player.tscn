@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c6ml63ey4ihma" path="res://components/input_component.tscn" id="5_rgyib"]
 [ext_resource type="PackedScene" uid="uid://dge2dmjl1uf55" path="res://components/movement_component.tscn" id="7_8t03j"]
 [ext_resource type="PackedScene" uid="uid://dd22uvhl1tudm" path="res://components/jump_component.tscn" id="7_boad6"]
+[ext_resource type="PackedScene" uid="uid://bychrkuq1clgu" path="res://components/casting_component.tscn" id="8_hg6s5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6k8r"]
 size = Vector2(60, 75)
@@ -13,6 +14,7 @@ size = Vector2(60, 75)
 script = ExtResource("1_yw30f")
 movement_component = NodePath("MovementComponent")
 jump_component = NodePath("JumpComponent")
+casting_component = NodePath("CastingComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(5, -70)

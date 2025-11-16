@@ -5,6 +5,16 @@ extends CharacterBody2D
 @export var input_component: InputComponent
 @export var movement_component: MovementComponent
 @export var jump_component: JumpComponent
+@export var casting_component: CastingComponent
+
+var current_spell = 0
+
+enum Spell {
+	NONE,
+	FIREBALL,
+	GRAPPLE,
+	TIME_STOP
+}
 
 func _physics_process(delta: float) -> void:
 	#gravity_component.handle_gravity(self, delta)
@@ -12,3 +22,16 @@ func _physics_process(delta: float) -> void:
 	#jump_component.handle_jump(self, input_component.get_jump_input())
 	
 	move_and_slide()
+	
+func _process(delta: float) -> void:
+	if input_component.get_fireball_input():
+		current_spell = Spell.FIREBALL
+		print(current_spell)
+	if input_component.get_grapple_input():
+		current_spell = Spell.GRAPPLE
+		print(current_spell)
+	if input_component.get_time_stop_input():
+		current_spell = Spell.TIME_STOP
+		print(current_spell)
+		
+	casting_component.cast_spell(current_spell, input_component.get_cast_input())
