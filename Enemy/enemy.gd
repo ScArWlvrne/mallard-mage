@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name FrogEnemy
 
-const speed = 20
+const speed = 15
 var is_frog_chase: bool
 
 var health = 80
