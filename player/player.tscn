@@ -26,19 +26,6 @@ flip_h = true
 position = Vector2(5, -38.5)
 shape = SubResource("RectangleShape2D_g6k8r")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="platform detector" type="RayCast2D" parent="."]
-target_position = Vector2(0, 6)
-collision_mask = 8
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -30)
-zoom = Vector2(0.8, 0.8)
-limit_smoothed = true
-position_smoothing_enabled = true
-editor_draw_screen = false
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 

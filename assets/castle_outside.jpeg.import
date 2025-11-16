@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd6ghbrwqpe7m"
-path="res://.godot/imported/castle_outside.jpeg-d9a75e95bf17d5c9b42881d31dc840a4.ctex"
+path="res://.godot/imported/castle_outside.jpeg-2bf84281b6f32161a8c63a239a47558d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level1/Background Images/castle_outside.jpeg"
-dest_files=["res://.godot/imported/castle_outside.jpeg-d9a75e95bf17d5c9b42881d31dc840a4.ctex"]
+source_file="res://assets/castle_outside.jpeg"
+dest_files=["res://.godot/imported/castle_outside.jpeg-2bf84281b6f32161a8c63a239a47558d.ctex"]
 
 [params]
 
