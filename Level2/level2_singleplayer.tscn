@@ -1,15 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cboquidtuoveg"]
+[gd_scene load_steps=3 format=3 uid="uid://bhf83npdxv6hy"]
 
 [ext_resource type="PackedScene" uid="uid://c836cvr7dwqx0" path="res://Level2/insideCastle.tscn" id="1_3qdpf"]
 [ext_resource type="PackedScene" uid="uid://dyjjwdldinojg" path="res://player/player.tscn" id="2_d3l7n"]
 
-[node name="Level2Singleplayer" type="Node2D"]
+[node name="Level2Singleplayer" type="Node"]
 
-[node name="Node2D" parent="." instance=ExtResource("1_3qdpf")]
+[node name="InsideCastle" parent="." instance=ExtResource("1_3qdpf")]
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="Level2" type="Node2D" parent="."]
 
-[node name="Player" parent="Node2D2" instance=ExtResource("2_d3l7n")]
-disable_mode = 2
-collision_layer = 15
-collision_mask = 241
+[node name="Player" parent="Level2" instance=ExtResource("2_d3l7n")]
+position = Vector2(-40, 264)
+scale = Vector2(0.67, 0.67)
