@@ -17,4 +17,9 @@ script = ExtResource("3_iqpwj")
 
 [node name="TimeStop" parent="." instance=ExtResource("5_4fsy2")]
 
+[node name="ManaDrainTimer" type="Timer" parent="TimeStop"]
+wait_time = 0.25
+
 [node name="Fireball" parent="." instance=ExtResource("4_vnax8")]
+
+[connection signal="timeout" from="TimeStop/ManaDrainTimer" to="TimeStop" method="_on_mana_drain_timer_timeout"]
