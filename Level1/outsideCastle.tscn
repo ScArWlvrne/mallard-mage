@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://jiekd2rosn76"]
+
+[ext_resource type="Texture2D" uid="uid://dd6ghbrwqpe7m" path="res://assets/castle_outside.jpeg" id="1_6lgpr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2tg0"]
+size = Vector2(39.87138, 46.188675)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.999999, 392)
+scale = Vector2(4.5963635, 4.896175)
+texture = ExtResource("1_6lgpr")
+
+[node name="Sprite2D2" type="CharacterBody2D" parent="."]
+physics_interpolation_mode = 1
+modulate = Color(0.30588236, 0.30588236, 0.30588236, 0.03529412)
+visibility_layer = 16
+position = Vector2(10, 387)
+scale = Vector2(31.1, 2.9444444)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2"]
+position = Vector2(-0.19292553, 3.0566254)
+shape = SubResource("RectangleShape2D_d2tg0")

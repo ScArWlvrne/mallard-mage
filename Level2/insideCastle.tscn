@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://c836cvr7dwqx0"]
+
+[ext_resource type="Texture2D" uid="uid://kwk1ylirl7h" path="res://assets/castle_inside.jpeg" id="1_pbnxi"]
+[ext_resource type="Texture2D" uid="uid://rjf6nm0vk4uh" path="res://assets/Screenshot 2025-11-15 at 8.21.02 PM.png" id="2_pbnxi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v14ls"]
+size = Vector2(39.57779, 35.586777)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.9999695, 3.9999847)
+scale = Vector2(5.215017, 5.9069767)
+texture = ExtResource("1_pbnxi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.0035191667, 0.0035191681, 0.0035191672, 1)
+top_level = true
+position = Vector2(3.8498118, 449.16278)
+scale = Vector2(38.60751, 4.0645995)
+texture = ExtResource("2_pbnxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2"]
+position = Vector2(0.0038885847, -2.3337555)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_v14ls")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.9764706)
+top_level = true
+position = Vector2(-764, 9.162811)
+scale = Vector2(0.9999976, 28.509043)
+texture = ExtResource("2_pbnxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4"]
+position = Vector2(0.0038885847, -2.3337555)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_v14ls")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.9764706)
+top_level = true
+position = Vector2(760, 3.9999466)
+scale = Vector2(1.2000021, 28.222221)
+texture = ExtResource("2_pbnxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3"]
+position = Vector2(0.0038885847, -2.3337555)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_v14ls")

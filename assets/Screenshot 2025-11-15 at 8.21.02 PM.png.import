@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://562dckd2n6xm"
-path="res://.godot/imported/TileArt.webp-ecd0da264d8c6ef432cef206f1d005fa.ctex"
+uid="uid://rjf6nm0vk4uh"
+path="res://.godot/imported/Screenshot 2025-11-15 at 8.21.02 PM.png-ef7401906a29f5b00808246af23f3bdd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level 1/Background Images/TileArt.webp"
-dest_files=["res://.godot/imported/TileArt.webp-ecd0da264d8c6ef432cef206f1d005fa.ctex"]
+source_file="res://assets/Screenshot 2025-11-15 at 8.21.02 PM.png"
+dest_files=["res://.godot/imported/Screenshot 2025-11-15 at 8.21.02 PM.png-ef7401906a29f5b00808246af23f3bdd.ctex"]
 
 [params]
 
