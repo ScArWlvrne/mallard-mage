@@ -1,46 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://hljwr44kwsp8"]
+[gd_scene load_steps=5 format=3 uid="uid://hljwr44kwsp8"]
 
-[ext_resource type="Script" uid="uid://cekfcw6envq8k" path="res://sprite_2d.gd" id="1_2xnyb"]
+[ext_resource type="Texture2D" uid="uid://bsms7d7xiln5d" path="res://assets/title_card.png" id="1_5u3kp"]
+[ext_resource type="Script" uid="uid://cg1135rvwy2qc" path="res://mallard_mage_game.gd" id="1_uunfh"]
+[ext_resource type="Texture2D" uid="uid://oo42gc8ytpyk" path="res://assets/play_button.png" id="2_4jg8o"]
+[ext_resource type="Texture2D" uid="uid://c266gx8hun6t7" path="res://assets/test_button.png" id="4_odidn"]
 
-[sub_resource type="MeshTexture" id="MeshTexture_2xnyb"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uunfh")
 
-[sub_resource type="Theme" id="Theme_4jg8o"]
+[node name="Title" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(558.5, 169.5)
+scale = Vector2(1.8100001, 2.1699998)
+texture = ExtResource("1_5u3kp")
 
-[node name="Mallard Mage Game" type="Node"]
-
-[node name="Mana Bar" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Mana Bar"]
-script = ExtResource("1_2xnyb")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Mana Bar/Sprite2D"]
-offset_left = 362.0
-offset_top = 183.0
-offset_right = 828.0
-offset_bottom = 223.0
-value = 100.0
-nine_patch_stretch = true
-texture_progress = SubResource("MeshTexture_2xnyb")
-tint_progress = Color(0.11372549, 0.7882353, 0.92941177, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Mana Bar/Sprite2D/TextureProgressBar"]
+[node name="ColorRect" type="ColorRect" parent="."]
+z_as_relative = false
 layout_mode = 1
-anchors_preset = -1
-offset_left = -1.0
-offset_top = 47.0
-offset_right = 74.0
-offset_bottom = 91.0
-theme = SubResource("Theme_4jg8o")
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 25
-text = "Mana"
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5921569, 0.9137255, 0.5921569, 1)
 
-[node name="Button" type="Button" parent="Mana Bar"]
-offset_left = 534.0
-offset_top = 363.99997
-offset_right = 591.0
-offset_bottom = 394.99997
-scale = Vector2(2.2547362, 2.8290443)
-text = "punch"
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -248.0
+offset_right = 75.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[connection signal="pressed" from="Mana Bar/Button" to="Mana Bar/Sprite2D" method="_on_mana_player_pressed"]
+[node name="Play" type="TextureButton" parent="VBoxContainer"]
+z_index = 100
+layout_mode = 2
+texture_normal = ExtResource("2_4jg8o")
+
+[node name="Test" type="TextureButton" parent="VBoxContainer"]
+z_index = 100
+layout_mode = 2
+texture_normal = ExtResource("4_odidn")
