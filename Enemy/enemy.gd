@@ -1,68 +1,67 @@
-class_name Enemy extends CharacterBody2D
+extends CharacterBody2D
 
+class_name FrogEnemy
 
-enum State {
-	WALKING,
-	DEAD,
-}
+const speed = 67
+var is_frog_chase: bool
 
-const WALK_SPEED = 22.0
+var health = 80
+var health_max = 80
+var health_min = 0
 
-var _state := State.WALKING
-var is_paused: bool = false
+var dead: bool = false
+var taking_damage: bool = false
+var damage_to_deal = 20
+var is_dealing_damage: bool = false
 
-@onready var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
-@onready var platform_detector := $PlatformDetector as RayCast2D
-@onready var floor_detector_left := $FloorDetectorLeft as RayCast2D
-@onready var floor_detector_right := $FloorDetectorRight as RayCast2D
-@onready var sprite := $Sprite2D as Sprite2D
-@onready var animation_player := $AnimationPlayer as AnimationPlayer
+var dir: Vector2
+const gravity = 900
+var knockback_force = 200
+var is_roaming: bool = true
 
-func _process(_delta):
-	if Input.is_action_pressed("time_stop"):
-		is_paused = true
-	if is_paused:
-		print("Paused")
+func _process(delta):
+	if !is_on_floor():
+		velocity.y += gravity * delta
 		velocity.x = 0
-		velocity.y = 0
-		return
-
-func _physics_process(delta: float) -> void:
-	if _state == State.WALKING and velocity.is_zero_approx() and not Input.is_action_pressed("time_stop"):
-		velocity.x = WALK_SPEED
-	velocity.y += gravity * delta
-	if not floor_detector_left.is_colliding():
-		velocity.x = WALK_SPEED
-	elif not floor_detector_right.is_colliding():
-		velocity.x = -WALK_SPEED
-
-	if is_on_wall():
-		velocity.x = -velocity.x
-
+	move(delta)
+	handle_animation()
 	move_and_slide()
 
-	if velocity.x > 0.0:
-		sprite.scale.x = 0.8
-	elif velocity.x < 0.0:
-		sprite.scale.x = -0.8
+func move(delta):
+	if !dead:
+		if !is_frog_chase:
+			velocity += dir * speed * delta
+		is_roaming = true
+	elif dead:
+		velocity.x = 0
 
-	var animation := get_new_animation()
-	if animation != animation_player.current_animation:
-		animation_player.play(animation)
+func handle_animation():
+	var anim_sprite = $AnimatedSprite2D
+	if !dead and !taking_damage and !is_dealing_damage:
+		anim_sprite.play("Walking")
+		if dir.x == -1:
+			anim_sprite.flip_h = true
+		elif dir.x == 1:
+			anim_sprite.flip_h = false
+	elif !dead and taking_damage and !is_dealing_damage:
+		anim_sprite.play("Damaged")
+		await get_tree().create_timer(0.8).timeout
+		taking_damage = false
+	elif dead and is_roaming:
+		is_roaming = false
+		anim_sprite.play("Die")
+		await get_tree().create_timer(1.0).timeout
+		handle_death()
 
+func handle_death():
+	self.queue_free()
 
-func destroy() -> void:
-	_state = State.DEAD
-	velocity = Vector2.ZERO
+func _on_direction_timer_timeout():
+	$DirectionTimer.wait_time = choose([6,7])
+	if !is_frog_chase:
+		dir = choose([Vector2.RIGHT, Vector2.LEFT])
+		velocity.x = 0
 
-
-func get_new_animation() -> StringName:
-	var animation_new: StringName
-	if _state == State.WALKING:
-		if velocity.x == 0:
-			animation_new = &"idle"
-		else:
-			animation_new = &"walk"
-	else:
-		animation_new = &"destroy"
-	return animation_new
+func choose(array):
+	array.shuffle()
+	return array.front()
